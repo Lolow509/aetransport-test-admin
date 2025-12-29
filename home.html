@@ -1,0 +1,224 @@
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin – Gestion Application</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="aetransport-test-admin/home.css" rel="stylesheet">
+
+  <link rel="icon" type="image/png" href="/aetransport-test/black_logo.png">
+
+  <style>
+    * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+    body {
+      margin: 0;
+      background: #f4f4f4;
+      color: #111;
+      display: flex;
+      height: 100vh;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 240px;
+      background: #000;
+      color: #fff;
+      padding: 24px 16px;
+    }
+
+    .sidebar h1 {
+      font-size: 18px;
+      margin-bottom: 32px;
+    }
+
+    .nav a {
+      display: block;
+      padding: 12px;
+      border-radius: 8px;
+      color: #bbb;
+      text-decoration: none;
+      margin-bottom: 8px;
+    }
+
+    .nav a.active,
+    .nav a:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    /* MAIN */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+    .header {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    /* STATS */
+    .stat {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      padding: 24px;
+    }
+    
+    .box{
+    padding: 24px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+
+    .card span {
+      color: #777;
+      font-size: 13px;
+    }
+
+    .card h2 {
+      margin: 10px 0 0;
+      font-size: 24px;
+    }
+
+    /* TABLE */
+    .table-wrapper {
+      padding: 0 24px 24px;
+      overflow: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 14px;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+
+    th {
+      background: #fafafa;
+      text-align: left;
+    }
+
+    .status {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .success { background: #e6f7ef; color: #1dbf73; }
+    .pending { background: #fff4e5; color: #ff9800; }
+    .cancel { background: #fdecea; color: #e11900; }
+  </style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <h1 onclick="toggleMenu_close()">🚖 Admin Panel</h1>
+  <div class="nav">
+    <a id="dash" class="active">Dashboard</a>
+    <a id="courses">Courses</a>
+    <a id="drivers">Chauffeurs</a>
+    <!--<a>Clients</a>
+    <a>Paiements</a> -->
+    <a id="parms">Paramètres</a>
+    <a id="logout">Déconnexion</a>
+  </div>
+</div>
+  
+  <div id="wait-screen" class="wait-screen" style="display:none">
+    <div class="spinner"></div>
+    <p>Patientez…</p>
+  </div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- HEADER -->
+  <div class="header">
+    <button class="burger" onclick="toggleMenu_open()">☰</button>
+    <div class="title" id="user_name">Nom Chauffeur</div>
+    <div class="admin" id="user_statut">Admin</div>
+  </div>
+
+
+  <!-- get dash -->
+  <div id="get_dash" class="box stat">
+    <div class="card">
+      <span>Courses aujourd’hui</span>
+      <h2 id="courses_today">42</h2>
+    </div>
+    <div class="card">
+      <span>Chauffeurs en ligne</span>
+      <h2 id="driver_online">8</h2>
+    </div>
+    <div class="card">
+      <span>Chiffre d’affaires</span>
+      <h2 id="ca_global">1 240 €</h2>
+    </div>
+    <div class="card">
+      <span>Courses en attente</span>
+      <h2 id="waiting_courses">3</h2>
+    </div>
+  </div>
+  
+  <div id="get_courses" class="box" style="display:none">
+    <nav class="bottom-nav">
+    <button class="tab active" onclick="changeTab('all')">
+        <span>Toutes</span>
+    </button>
+
+    <button class="tab" onclick="changeTab('pending')">
+        <span>À valider</span>
+        <span id="badge-pending" class="badge-count">0</span>
+    </button>
+
+    <button class="tab" onclick="changeTab('active')">
+        <span>En cours</span>
+    </button>
+</nav>
+
+
+<main id="courses_box"></main>
+  </div>
+  
+  
+   <div id="get_drivers" class="box"  style="display:none">
+    bienvenue all drivers
+  </div>
+  
+   <div id="get_parms" class="box"  style="display:none">
+    bienvenue parametre
+  </div>
+  
+  
+
+</div>
+  
+
+</body>
+
+  <script src="aetransport-test-admin/home.js"></script>
+</html>
