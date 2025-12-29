@@ -189,4 +189,67 @@
   
 
 </body>
+
+  <script>
+     const scriptURL = "https://script.google.com/macros/s/AKfycbz3C7MJ-_NFzN1WigpN2bzkB0RXkeu-in8nGLDotyCXLu6De3nIbyjsPZfvLmmcwuwx6w/exec"
+
+ const raw = "";
+
+const requestOptions = {
+  method: "POST",
+  body: raw,
+  redirect: "follow"
+};
+
+let info_user
+ 
+ 
+info_user = JSON.parse(localStorage.getItem('info_user'))
+
+if(info_user){
+  window.location.href = "aetransport-test-admin/home.html"
+}
+
+
+
+// Exemple submit
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+  
+   //   if(email_co.value == "lolow@mail.ff" && mdp_co.value == "123"){
+        get_id = Date.now()
+            //alert('Connexion en cours…');        
+        
+         let data = new URLSearchParams();
+            data.append('id', get_id);
+            data.append('mdp', mdp_co.value);
+            data.append('email', email_co.value);
+            data.append('action', "connect_user_admin");
+    
+    let data_String = data.toString()
+    
+    fetch(`${scriptURL}?${data_String}`, requestOptions )
+                   .then((response) => response.json())
+                .then((result) => {
+      
+      console.log(result)
+
+              if(result.message == "utilisateur connecter"){
+                info_user = JSON.stringify(result.info)
+                   localStorage.setItem('info_user', info_user);
+                   window.location.href = 'aetransport-test-admin/home.html';
+              } else {
+                alert('Utilisateur non reconnu'); 
+              }
+      
+      
+    })
+        
+        
+       
+        
+         // }
+    });
+
+  </script>
 </html>
