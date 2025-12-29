@@ -21,7 +21,7 @@ const requestOptions = {
 info_user = JSON.parse(localStorage.getItem('info_user'))
 
 if(!info_user){
-  window.location.href = "aetransport-test-admin/"
+  window.location.href = "/"
 }
 
 
