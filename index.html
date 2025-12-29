@@ -1,0 +1,192 @@
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Connexion</title>
+
+  <!-- Police proche Uber -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 380px;
+      padding: 32px 24px 40px;
+    }
+
+    /* Logo / Brand */
+    .brand {
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeDown 0.8s ease forwards;
+    }
+
+    .brand img {
+      max-width: 80px;
+      margin-bottom: 16px;
+      animation: pulse 2s infinite;
+    }
+
+    .brand h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.5px;
+    }
+
+    .brand p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #b3b3b3;
+    }
+
+    /* Form */
+    form {
+      animation: fadeUp 0.8s ease forwards;
+      animation-delay: 0.2s;
+      opacity: 0;
+    }
+
+    .field {
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: #b3b3b3;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: none;
+      background: #111;
+      color: #fff;
+      font-size: 15px;
+    }
+
+    .field input:focus {
+      outline: none;
+      background: #161616;
+    }
+
+    /* Button */
+    .btn {
+      width: 100%;
+      margin-top: 12px;
+      padding: 16px;
+      border-radius: 14px;
+      border: none;
+      background: #fff;
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.1s ease, opacity 0.2s ease;
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* Animations */
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* Desktop */
+    @media (min-width: 768px) {
+      body {
+        background: radial-gradient(circle at top, #111, #000);
+      }
+
+      .login-container {
+        background: #000;
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+
+    <div class="brand">
+      <!-- Remplace l'image ou enlève-la pour n'utiliser que le nom -->
+      <img src="https://lolow509.github.io/aetransport-test/white_logo.png" alt="Logo">
+      <h1 id="companyName">AE Transport</h1>
+      <p>Connectez-vous pour continuer</p>
+    </div>
+
+    <form id="loginForm">
+      <div class="field">
+        <label>Email</label>
+        <input type="email" id="email_co" value="lolow@mail.ff" required />
+      </div>
+
+      <div class="field">
+        <label>Mot de passe</label>
+        <input type="password" id="mdp_co" value="123" required />
+      </div>
+
+      <button class="btn" type="submit">Se connecter</button>
+    </form>
+
+    <div class="footer">
+      © 2025
+    </div>
+
+  </div>
+
+  
+
+</body>
+</html>
