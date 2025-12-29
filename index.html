@@ -6,6 +6,7 @@
 
   <!-- Police proche Uber -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="https://lolow509.github.io/aetransport-test/black_logo.png">
 
   <style>
     * { box-sizing: border-box; }
@@ -207,7 +208,7 @@ let info_user
 info_user = JSON.parse(localStorage.getItem('info_user'))
 
 if(info_user){
-  window.location.href = "aetransport-test-admin/home.html"
+  window.location.href = "/home.html"
 }
 
 
@@ -237,7 +238,7 @@ if(info_user){
               if(result.message == "utilisateur connecter"){
                 info_user = JSON.stringify(result.info)
                    localStorage.setItem('info_user', info_user);
-                   window.location.href = 'aetransport-test-admin/home.html';
+                   window.location.href = '/home.html';
               } else {
                 alert('Utilisateur non reconnu'); 
               }
