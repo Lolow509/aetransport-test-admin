@@ -22,6 +22,9 @@ info_user = JSON.parse(localStorage.getItem('info_user'))
 
 if(!info_user){
   window.location.href = location.origin + "/aetransport-test-admin/index.html"
+} else {
+ document.querySelector('#user_nom').innerText = info_user.nom
+ document.querySelector('#user_statut').innerText = info_user.statut
 }
 
 
