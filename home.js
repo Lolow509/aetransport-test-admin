@@ -21,7 +21,7 @@ const requestOptions = {
 info_user = JSON.parse(localStorage.getItem('info_user'))
 
 if(!info_user){
-  window.location.href = "/"
+  window.location.href = "/index.html"
 }
 
 
@@ -66,8 +66,8 @@ document.querySelectorAll('.nav a').forEach(link => {
 
 function call_logout(){
   console.log('call logout')
-  //localStorage.removeItem("info_user");
-  //window.location.href = "aetransport-test-admin/"
+  localStorage.removeItem("info_user");
+  window.location.href = "aetransport-test-admin/index.html"
 }
 
 
