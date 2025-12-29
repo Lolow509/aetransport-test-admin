@@ -178,7 +178,7 @@
         <input type="password" id="mdp_co" value="123" required />
       </div>
 
-      <button class="btn" type="submit">Se connecter</button>
+      <button class="btn" id="submit_name" type="submit">Se connecter</button>
     </form>
 
     <div class="footer">
@@ -216,6 +216,9 @@ if(info_user){
 // Exemple submit
     document.getElementById('loginForm').addEventListener('submit', (e) => {
       e.preventDefault();
+
+      document.querySelector('#submit_name').textContent = "Patientez..."
+      document.querySelector('#submit_name').disabled = true
   
    //   if(email_co.value == "lolow@mail.ff" && mdp_co.value == "123"){
         get_id = Date.now()
@@ -240,6 +243,8 @@ if(info_user){
                    localStorage.setItem('info_user', info_user);
                    window.location.href = location.origin + "/aetransport-test-admin/home.html";
               } else {
+                document.querySelector('#submit_name').textContent = "Se connecter"
+      document.querySelector('#submit_name').disabled = false
                 alert('Utilisateur non reconnu'); 
               }
       
