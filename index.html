@@ -238,7 +238,7 @@ if(info_user){
               if(result.message == "utilisateur connecter"){
                 info_user = JSON.stringify(result.info)
                    localStorage.setItem('info_user', info_user);
-                   window.location.href = 'aetransport-test-admin/home.html';
+                   window.location.href = '/aetransport-test-admin/home.html';
               } else {
                 alert('Utilisateur non reconnu'); 
               }
